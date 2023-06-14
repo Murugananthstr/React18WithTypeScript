@@ -1,37 +1,25 @@
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 
-function ListGroup() {
-  let listOfCountries = [
-    "New York",
-    "San Fransico",
-    "London",
-    "Paris",
-    "Tokyo",
-    "Vancouver",
-  ];
-  const [selectedIndex, setSelectedIndex] = useState(0);
+interface Props {
+  items: string[];
+  heading: string;
+}
 
-  // const handleClickItems = (item: string, index: number): void => {
-  //   console.log(`Item ${item} Number : ${index}`);
-  // };
-
-  const handleClick = (mevent: MouseEvent) => {
-    console.log(mevent);
-  };
+function ListGroup({ items, heading }: Props) {
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   return (
     <div>
-      <h1>List</h1>
-      {listOfCountries.length === 0 && <p>Not Items Found</p>}
+      <h1>{heading}</h1>
+      {items.length === 0 && <p>Not Items Found</p>}
       <ul className="list-group">
-        {listOfCountries.map((item, index) => (
+        {items.map((item, index) => (
           <li
             className={
               index === selectedIndex
                 ? "list-group-item active"
                 : "list-group-item"
             }
-            // onClick={() => handleClickItems(item, index)}
             onClick={() => setSelectedIndex(index)}
             key={item}
           >
