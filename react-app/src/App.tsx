@@ -9,10 +9,23 @@ function App() {
     "Newzland",
     "India",
   ];
+
+  const handleSelectedItem = (item: string) => {
+    console.log(item);
+  };
+
   return (
     <div>
-      <ListGroup items={countries} heading="Name of the Countries" />
-      <ListGroup items={["Red", "Blue", "Green"]} heading="Name of the Color" />
+      <ListGroup
+        items={countries}
+        heading="Name of the Countries"
+        onSelectItem={handleSelectedItem}
+      />
+      <ListGroup
+        items={["Red", "Blue", "Green"]}
+        heading="Name of the Color"
+        onSelectItem={handleSelectedItem}
+      />
     </div>
   );
 }
