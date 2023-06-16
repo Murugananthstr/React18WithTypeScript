@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 interface Props {
   buttonColor:
     | "primary"
@@ -8,14 +10,13 @@ interface Props {
     | "info"
     | "light"
     | "dark";
-  children: string;
+  children: ReactNode;
   onClick: () => void;
 }
 
 const Button = ({ buttonColor, children, onClick }: Props) => {
   return (
     <div>
-      {buttonColor}
       <button
         type="button"
         className={"btn btn-" + buttonColor}
