@@ -1,21 +1,17 @@
-import { useState } from "react";
-import Alert from "./components/Alert";
-import Button from "./components/Button";
+import ListGroup from "./components/ListGroup/";
 
 function App() {
-  const [alertVisible, setAlertVisible] = useState(false);
+  const handleSelectedItem = (item: string) => {
+    console.log(item);
+  };
 
   return (
     <div>
-      {alertVisible && (
-        <Alert onClose={() => setAlertVisible(false)}>
-          Hello World<strong> Passing html text to child component</strong>
-        </Alert>
-      )}
-      {/* forced to provide only (property) Props.buttonColor: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "light" | "dark" */}
-      <Button buttonColor="primary" onClick={() => setAlertVisible(true)}>
-        <strong>This is bold text button using html</strong>
-      </Button>
+      <ListGroup
+        items={["Red", "Green"]}
+        heading="Test"
+        onSelectItem={() => console.log("clicked")}
+      />
     </div>
   );
 }
