@@ -10,7 +10,7 @@ function App() {
       <ListGroup
         items={["Red", "Green"]}
         heading="Test"
-        onSelectItem={() => console.log("clicked")}
+        onSelectItem={() => handleSelectedItem}
       />
     </div>
   );
