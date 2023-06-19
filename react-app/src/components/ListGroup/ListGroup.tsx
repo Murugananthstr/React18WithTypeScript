@@ -12,13 +12,17 @@ const List = styled.ul`
   color: red;
 `;
 
-const ListItem = styled.li`
+interface ListItemProps {
+  active: boolean;
+}
+
+const ListItem = styled.li<ListItemProps>`
   padding-left: 100px;
-  background: blue;
+  background: ${(props) => (props.active ? "blue" : "none")};
 `;
 
 function ListGroup({ items, heading, onSelectItem }: Props) {
-  const [selectedIndex, setSelectedIndex] = useState(-1);
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
   return (
     <div>
@@ -27,6 +31,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
       <List>
         {items.map((item, index) => (
           <ListItem
+            active={index === selectedIndex}
             onClick={() => {
               setSelectedIndex(index);
               onSelectItem(item);
