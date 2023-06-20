@@ -1,17 +1,15 @@
-import ListGroup from "./components/ListGroup/";
 import "./App.css";
+import { BsFillCalendarCheckFill } from "react-icons/bs";
+import Button from "./components/Button/Button";
 
 function App() {
-  const handleSelectedItem = (item: string) => {
-    console.log(item);
-  };
-
   return (
     <div>
-      <ListGroup
-        items={["Red", "Green"]}
-        heading="Test"
-        onSelectItem={() => handleSelectedItem}
+      <BsFillCalendarCheckFill size="140" color="green" />
+      <Button
+        buttonColor="primary"
+        children="Fancy Button"
+        onClick={() => console.log("clicked")}
       />
     </div>
   );

@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import style from "./Button.module.css";
 
 interface Props {
   buttonColor:
@@ -19,7 +20,8 @@ const Button = ({ buttonColor, children, onClick }: Props) => {
     <div>
       <button
         type="button"
-        className={"btn btn-" + buttonColor}
+        // className={"btn btn-" + buttonColor}
+        className={style.fancyButton}
         onClick={onClick}
       >
         {children}
