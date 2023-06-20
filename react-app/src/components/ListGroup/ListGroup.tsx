@@ -28,7 +28,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
     <div>
       <h1>{heading}</h1>
       {items.length === 0 && <p>Not Items Found</p>}
-      <List>
+      <ul style={{ listStyle: "lower-roman", color: "red" }}>
         {items.map((item, index) => (
           <ListItem
             active={index === selectedIndex}
@@ -41,7 +41,7 @@ function ListGroup({ items, heading, onSelectItem }: Props) {
             {item}
           </ListItem>
         ))}
-      </List>
+      </ul>
     </div>
   );
 }
