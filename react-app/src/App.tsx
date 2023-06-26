@@ -2,16 +2,18 @@ import "./App.css";
 import { useState } from "react";
 
 function App() {
-  //React updates the state asynchronously meaning here the line no 13 setVisibility(true) is setting visibility value to true,
-  // but you can still see the concole.log(visibility) will display as false for the first time because it updates the state asynchronously
-  // Why because to have better performance, example if you try to set the many state using hooks due to many rerendering it will take lot of time,
-  // to avoid this scenario, react will create batches to update all the state in single short.
-
+  // Hooks has to be used as top level of your components,
+  // it maintains array similar to the array like [false, true] and assign back the value to isVisbility and approved variables in sequence
+  // Since it is maintaning and assigning in sequence we should not change the order, hence we should not use if conditions and for condition for state hooks
   const [isVisibility, setVisibility] = useState(false);
+  const [approved, setApproved] = useState(true);
+  let count = 0; // this variable is local to the scope whereas state is stored outside of the components
 
   const handleClick = () => {
     setVisibility(true);
+    count++;
     console.log(isVisibility);
+    console.log(count);
   };
 
   return (
